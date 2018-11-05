@@ -1,0 +1,92 @@
+/** Working through with words:
+
+---- Rectangles oriented up/down: ----
+	-- X values --
+
+	- Center of Rect = x;
+	- Width of Rect = w;
+
+		- Left		= x - 0.5*w
+		- Right		= x + 0.5*w
+		
+	-- Y Values --
+
+	- Center of Rect = y;
+	- Length of Rect = l;
+
+		- Top		= y - 0.5*l
+		- Bottom	= y + 0.5*l
+	
+---- Rectangles oriented left/right ----
+	-- X values --
+
+	- Center of Rect = x;
+	- Width of Rect = l;
+
+		- Left 		= x - 0.5*l
+		- Right		= x + 0.5*left/right
+		
+	-- Y values --
+
+	- Center of Rect = y;
+	- Length of Rect = w;
+
+		- Top 		= y - 0.5*w
+		- Bottom 	= y + 0.5*w
+	
+!!------ IF STATEMENTS ------!!
+
+	- If the mouse is between the (left & right) & also between (top & bottom)
+	- then the mouse if over the rectangle.
+
+		- The mouse is between left & right when mouseX is greater than (farther right)
+		- than the leftmost part of the rectangle and when mouseX is less than the rightmost
+		- part of the rectangle.
+		
+		- The mouse is between the top & bottom when mouseY is greater than (farther down)
+		- than the topmost part of the rectangle and when mouseY is less than the bottommost
+		- part of the rectangle.
+
+	- For rectangles up/down:
+		--> if (mouseX > x - 0.5*w)
+		--> if (mouseX < x + 0.5*w)
+		
+		--> if (mouseY > y - 0.5*l)
+		--> if (mouseY < y + 0.5*l)
+		
+	- For rectangles left/right:
+		--> if (mouseX > x - 0.5*l)
+		--> if (mouesX < x + 0.5*l)
+		
+		--> if (mouseY > y - 0.5*l)
+		--> if (mouseY < y + 0.5*l)
+	
+- These can now be condensed into two if statements, using the && operator to stitch them together.
+
+	- For rectangles up/down:
+		(mouseX > x - 0.5*w) && (mouseX < x + 0.5*w) // L/R
+		&&
+		(mouseY > y - 0.5*l) && (mouseY < y + 0.5*l) // T/B
+		
+	- For rectangles left/right:
+		(mouseX > x - 0.5*l) && (mouesX < x + 0.5*l) // L/R
+		&&
+		(mouseY > y - 0.5*l) && (mouseY < y + 0.5*l) // T/B
+	
+- So now I can add the statements that determine which direction the rectangle is facing:
+	--> if (abs(dir) == 1) // If it's up or down (1 == up, -1 == down)
+	--> if (abs(dir) == 2) // If it's left or right (2 == left, -2 == right)
+		
+*/
+	
+// And then finally put the second set of if statements overtop:
+
+	if (abs(dir) == 1) {
+		if ((mouseX > x - 0.5*w) && (mouseX < x + 0.5*w) && (mouseY > y - 0.5*l) && (mouseY < y + 0.5*l)) {
+			//collision!
+		}
+	} else if (abs(dir) == 2) {
+		if ((mouseX > x - 0.5*l) && (mouseX < x + 0.5*l) && (mouseY > y - 0.5*w) && (mouseY < y + 0.5*w)) {
+			//collision!
+		}
+	}

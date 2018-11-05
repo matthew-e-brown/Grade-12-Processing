@@ -1,0 +1,37 @@
+-> I have two ordered pairs:
+(x, y);							// bottom of the line
+(collisions.x, collisions.y);	// top of the line
+
+(0, 0); is the top left of the screen, don't forget !! // computers are weird
+
+Use the two points to calculate the slope of the line:
+dY / dX
+(y2-y1)/(x2-x1)
+
+float m = (collisions.y - y) / (collisions.x - x);
+//this will be constant but why not calculate it each time
+
+now I need to find b
+y = mx+b
+
+--> I know the x value, 0
+--> I know the m value, float m
+--> I need to find the b value by subbing in a point
+
+--> instead of using x = 0, use the (x, y) value you know: the start of the line
+
+float y = float m * float x + b
+
+0	= mx + b - y
+-b	= mx - y
+b	= -mx+y 
+
+b = -1*(float m * x value) + y value
+
+Now we swap x with beanX and see if the y-value is within the bean's radius
+
+float yVal = (collisions.y - shoty)/(collisions.x - x)*(beanX)+(-1*(float m * shotx) + shoty))
+
+if (yVal == beanY + beanRadius || yVal == beanY - beanRadius) {
+	COLLISION!!
+}

@@ -1,0 +1,10 @@
+This is a file with text in it.
+I don't know what to really put in this file.
+I'm just going to use this for testing file encryption.
+
+Here is the first paragraph from a random wikipedia article:
+
+The A5 motorway (Slovene: avtocesta A5, Pomurski krak) of Slovenia is 79.6 km long.
+It begins at the Dragucova interchange on the A1 motorway north of Maribor and ends at the
+Hungarian border at Pince, continuing on in Hungary as the M70 motorway.
+It connects Maribor with Budapest.
